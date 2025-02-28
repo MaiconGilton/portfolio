@@ -1,0 +1,42 @@
+---
+import ContactForm from "../components/ContactForm.tsx";
+import SocialIcons from "../components/SocialIcons.astro";
+---
+
+<footer
+  id="contact"
+  class="mt-20 pt-20 bg-[#f5f5f5] dark:bg-[#1a1d21]"
+  data-scroll-reveal="enter bottom move 30px over 0.4s after 0.3s"
+>
+  <div
+    class="flex flex-col md:flex-row flex-wrap justify-around gap-2 md:gap-10 pb-10 mb-10"
+  >
+    <div class="flex items-center justify-center gap-4">
+      <img
+        class="w-20 h-20 md:w-30 md:h-30 rounded-full"
+        src="images/profile2.webp"
+        alt="Maicon Freire"
+        loading="lazy"
+      />
+
+      <div>
+        <h3 class="section__title text-2xl text-left">Maicon Freire</h3>
+
+        <p class="mb-2">Senior Fullstack Developer</p>
+
+        <div class="social-buttons justify-start">
+          <SocialIcons />
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 md:mt-0 w-full max-w-[600px] self-center">
+      <ContactForm client:visible />
+    </div>
+  </div>
+
+  <div class="w-full h-[1px] bg-gray-600"></div>
+  <p class="text-center text-xs p-6">
+    &copy; 2025 Maicon Freire. All rights reserved.
+  </p>
+</footer>
