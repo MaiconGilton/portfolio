@@ -1,18 +1,14 @@
 {
-  "name": "wad-201-midterm-portfolio-project",
-  "version": "1.0.0",
-  "description": "## Goal",
-  "main": "index.js",
+  "name": "tidal-tower",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "build:css": "sass -w src/sass:src/css",
-    "live": "live-server src --verbose",
-    "dev": "concurrently \"npm run build:css\" \"npm run live\""
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^8.2.1",
-    "live-server": "^1.2.2",
-    "sass": "^1.69.3"
+  "dependencies": {
+    "astro": "^5.4.0"
   }
 }
