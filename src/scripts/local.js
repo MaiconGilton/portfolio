@@ -32,4 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { once: true },
   )
+
+  // Scroll reveal init
+  new scrollReveal()
 })
