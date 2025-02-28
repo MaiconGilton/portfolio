@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@tailwind utilities;
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+* {
+  box-sizing: border-box;
+}
+
+@theme {
+  --color-primary: #335cff;
+  --color-background: #21252a;
+  --color-background-card-dark: #2d333a;
+  --color-background-card: var(--color-gray-100);
+  --color-primary-text: #000000;
+  --color-primary-text-dark: #ffffff;
+  --color-secondary-text-dark: #99a1af;
+  --color-secondary-text: #364153;
+}
+
+@layer base {
+  html {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-white dark:bg-background;
+  }
+
+  body {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  section,
+  footer {
+    @apply px-5 md:px-20;
+  }
+
+  section:not(#home) {
+    @apply pt-20 md:pt-30;
+  }
+
+  .primary--text {
+    @apply text-primary-text dark:text-primary-text-dark;
+  }
+
+  p,
+  .secondary--text {
+    @apply text-sm font-medium text-secondary-text dark:text-secondary-text-dark;
+  }
+
+  label {
+    @apply text-xs text-secondary-text dark:text-secondary-text-dark;
+  }
+
+  input,
+  textarea {
+    @apply text-sm text-secondary-text dark:text-gray-200;
+  }
+}
+
+@layer components {
+  .button--primary {
+    @apply bg-primary md:text-lg text-center text-white font-bold py-2 px-6 rounded-xl hover:brightness-90 shadow;
+  }
+
+  .button--neutral {
+    @apply md:text-lg text-center text-primary border border-primary font-semibold py-2 px-6 rounded-xl hover:brightness-90;
+  }
+
+  .section__title {
+    @apply text-2xl md:text-4xl font-bold text-primary-text dark:text-primary-text-dark mb-1 text-center;
+  }
+
+  .section__subtitle {
+    @apply text-xs font-light text-center mb-7 md:mb-14 max-w-[600px] mx-auto;
+  }
+}
