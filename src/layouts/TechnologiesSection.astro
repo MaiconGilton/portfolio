@@ -1,0 +1,48 @@
+---
+const images = [
+  "react",
+  "react-native",
+  "next",
+  "swiftui",
+  "html",
+  "node",
+  "golang",
+  "docker",
+  "postgres",
+  "redis",
+  "aws",
+  "github",
+  "prometheus",
+  "grafana",
+  "firebase",
+  "oracle",
+  "fastlane",
+];
+---
+
+<section
+  id="stacks"
+  data-scroll-reveal="enter bottom move 0px over 0.4s after 0.3s"
+>
+  <h2 class="section__title">My Tech Stack</h2>
+
+  <p class="section__subtitle">
+    Some technologies and tools I use to build efficient, reliable, and scalable
+    solutions.
+  </p>
+
+  <div class="stack__container flex flex-col gap-10">
+    <div class="flex flex-wrap gap-4 items-center justify-center">
+      {
+        images.map((image) => (
+          <img
+            class="p-[7px] h-[3em] bg-background-card rounded-lg"
+            src={`images/tools/${image}.svg`}
+            alt={image + " logo"}
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
