@@ -59,3 +59,18 @@
     <div class="header__mobile-menu"><span></span></div>
   </nav>
 </header>
+
+<script>
+  // ------------- Header shadow on scroll ------------- //
+  const header = document.querySelector(".header");
+  window.addEventListener(
+    "scroll",
+    () => {
+      header?.classList.toggle(
+        "shadow-[0_2px_15px_-1px_rgba(0,0,0,0.2)]",
+        window.scrollY > 0
+      );
+    },
+    { passive: true }
+  );
+</script>
