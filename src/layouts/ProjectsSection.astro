@@ -1,0 +1,147 @@
+---
+export const projects = [
+  {
+    id: 2,
+    title: "Amateur Golf Challenge",
+    description:
+      "Australian platform designed to make golf more exciting and rewarding for amateur players.",
+    image: "project-2.webp",
+  },
+  {
+    id: 1,
+    title: "AgendamentosPop",
+    description:
+      "Appointment scheduling platform designed to streamline service bookings for professionals and businesses.",
+    image: "project-1.webp",
+  },
+  {
+    id: 6,
+    title: "ORÍGEO CRM - Globant",
+    description:
+      "Orígeo is a joint venture between Bunge and UPL, providing farmers in Brazil with sustainable agricultural solutions, including seeds, fertilizers, crop protection, and digital farming services. By combining expertise in logistics, marketing, and agronomic consulting, Orígeo helps simplify farm management and promote sustainable practices.",
+    image: "project-6.webp",
+  },
+  {
+    id: 5,
+    title: "Sumitomo Chemical - Globant",
+    description:
+      "Japanese chemical company committed to creating innovative solutions across various industries, including petrochemicals, energy, and information technology.",
+    image: "project-5.webp",
+  },
+  // {
+  //   id: 4,
+  //   title: "OneTouch - Globant",
+  //   description:
+  //     "A global leader in blood glucose monitoring, dedicated to improving the quality of life for people living with diabetes.",
+  //   image: "project-4.webp",
+  // },
+  {
+    id: 3,
+    title: "Casacor",
+    description:
+      " Architecture, interior design, and landscaping exhibition platform.",
+    image: "project-3.webp",
+    company: "CASA COR PROMOCOES E COMERCIAL LTDA",
+  },
+  {
+    id: 7,
+    title: "Galapagos Outdoor",
+    description:
+      "Brazilian brand dedicated to inspiring individuals to reconnect with nature through outdoor activities.They offer a range of clothing and accessories designed for both everyday wear and high- performance adventures.",
+    image: "project-7.webp",
+  },
+];
+---
+
+<section id="projects">
+  <h2 class="section__title">Projects</h2>
+
+  <p class="section__subtitle">
+    A showcase of my work, demonstrating my expertise in building innovative,
+    scalable, and user-centered applications across a variety of technologies
+    and industries.
+  </p>
+
+  <div class="project__container">
+    {
+      projects.map((project, index) => (
+        <div
+          class="project__item"
+          data-scroll-reveal={`enter bottom move 30px over 0.4s after 0.${2 + index}s`}
+        >
+          <h3 class="project__title">{project.title}</h3>
+
+          <p class="project__description">{project.description}</p>
+
+          <img
+            src={"./images/project/" + project.image}
+            alt="project"
+            class="project__img"
+            loading="lazy"
+          />
+
+          <button
+            data-project-id={project.id}
+            class="project__button button--primary"
+          >
+            See more
+          </button>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
+
+  // Show project details modal
+  document.addEventListener("click", async (e) => {
+    if (e.target.matches("[data-project-id]")) {
+      const projectId = e.target.dataset.projectId;
+      const projectUrl = "/project/" + projectId;
+
+      if (!projectUrl) return;
+
+      const response = await fetch(projectUrl);
+      const htmlContent = await response.text();
+      window.showModal(htmlContent);
+    }
+  });
+
+  let lightbox: any;
+  const observer = new MutationObserver((mutations) => {
+    // biome-ignore lint/complexity/noForEach: <explanation>
+    mutations.forEach((mutation) => {
+      if (mutation.type === "childList") {
+        const gallery = document.querySelector("#project__gallery");
+
+        if (gallery) {
+          if (lightbox) {
+            lightbox.destroy();
+          }
+
+          lightbox = new PhotoSwipeLightbox({
+            gallery: "#project__gallery",
+            children: "a",
+            pswpModule: () => import("photoswipe"),
+            paddingFn: (viewportSize) => {
+              if (viewportSize.x < 600) {
+                // Mobile: Smaller padding
+                return { top: 10, bottom: 10, left: 10, right: 10 };
+              }
+              // Desktop: More padding
+              return { top: 40, bottom: 40, left: 40, right: 40 };
+            },
+          });
+          lightbox.init();
+        }
+      }
+    });
+  });
+
+  const modal = document.getElementById("modal");
+  const config = { childList: true, subtree: true };
+  if (modal) observer.observe(modal, config);
+</script>

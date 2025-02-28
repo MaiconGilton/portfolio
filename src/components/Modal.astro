@@ -1,0 +1,67 @@
+<div
+  id="modal"
+  class="fixed inset-0 flex items-center justify-center bg-black/20 backdrop-blur-lg opacity-0 invisible transition-opacity z-50 w-full p-4 md:p-10"
+>
+  <div
+    id="modal-box"
+    class="relative w-full max-h-[calc(100svh-36px)] md:max-h-[calc(100svh-80px)] rounded-lg shadow-lg flex flex-col bg-background-card dark:bg-background-card-dark transform scale-95 opacity-0 transition-all duration-300"
+  >
+    <span
+      onclick="window.closeModal()"
+      class="absolute top-3 right-5 text-gray-400 text-2xl cursor-pointer hover:text-gray-800 p-2 z-10 hidden md:block"
+      >&times;</span
+    >
+
+    <div
+      id="modal-content"
+      class="flex-1 overflow-y-auto w-full flex flex-col px-5 md:px-10 md:py-0 my-5 mb-0 md:my-10 md:pl-10"
+      style={{
+        scrollbarWidth: "thin",
+      }}
+    >
+    </div>
+  </div>
+</div>
+
+<script>
+  // ------------- Modal utils ------------- //
+  const modal = document.getElementById("modal");
+
+  window.showModal = function (htmlContent: string) {
+    const modalContent = document.getElementById("modal-content");
+    // @ts-ignore
+    modalContent.innerHTML = htmlContent;
+
+    modal?.classList.add("opacity-100", "visible");
+    document.body.classList.add("overflow-hidden");
+
+    // Animate modal content
+    setTimeout(() => {
+      const modalBox = document.getElementById("modal-box");
+      modalBox?.classList.remove("scale-95", "opacity-0");
+      modalBox?.classList.add("scale-100", "opacity-100");
+    }, 50);
+  };
+
+  window.closeModal = function () {
+    const modalBox = document.getElementById("modal-box");
+    modalBox?.classList.remove("scale-100", "opacity-100");
+    modalBox?.classList.add("scale-95", "opacity-0");
+
+    setTimeout(() => {
+      modal?.classList.remove("visible", "opacity-100");
+      document.body.classList.remove("overflow-hidden");
+      // @ts-ignore
+      document.getElementById("modal-content").innerHTML = "";
+    }, 250);
+  };
+
+  modal?.addEventListener("click", (e) => {
+    // @ts-ignore
+    if (e.target?.id === "modal") window.closeModal();
+  });
+  document.addEventListener("closeModal", window.closeModal);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") window.closeModal();
+  });
+</script>

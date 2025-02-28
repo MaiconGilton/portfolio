@@ -1,0 +1,144 @@
+---
+import CloseModalBtn from "./CloseModalBtn.astro";
+
+const images = [
+  { src: "./images/screenshots/casacor/1.webp", width: 895, height: 667 },
+  { src: "./images/screenshots/casacor/2.webp", width: 895, height: 667 },
+  { src: "./images/screenshots/casacor/3.webp", width: 895, height: 667 },
+  { src: "./images/screenshots/casacor/4.webp", width: 895, height: 667 },
+  { src: "./images/screenshots/casacor/5.webp", width: 895, height: 667 },
+  { src: "./images/screenshots/casacor/6.webp", width: 895, height: 667 },
+  { src: "./images/screenshots/casacor/7.webp", width: 895, height: 667 },
+  { src: "./images/screenshots/casacor/8.webp", width: 895, height: 667 },
+];
+---
+
+<div class="project-details">
+  <h2>Casacor App - Ticket Sales & Content Management Platform</h2>
+
+  <p>
+    Casacor App is an all-encompassing solution designed to streamline the
+    visitor experience at Casacor events. Acting as both a ticket-selling
+    platform and a mobile application, it provides users with a seamless
+    interface to purchase tickets, access event details, and manage their
+    overall experience through integrated mobile and web solutions.
+  </p>
+
+  <p class="mt-2 text-sm">
+    Company: CASACOR - A company of Grupo Abril<br />
+    Role: Full-Stack Developer <br />
+    Period: September 2022 – August 2023
+  </p>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>Technical Overview</h3>
+
+  <ul>
+    <li>
+      <strong>Mobile Application:</strong> Developed entirely with
+      <strong>React Native</strong> from a detailed Figma design, ensuring a high-performance,
+      native-like experience on both iOS and Android platforms.
+    </li>
+    <li>
+      <strong>Backend Services:</strong> Engineered a robust backend using
+      <strong>Node.js</strong> and <strong>MongoDB</strong>, hosted on
+      <strong>AWS</strong> for fast, scalable, and reliable data management.
+    </li>
+    <li>
+      <strong>Web Application & Admin Dashboard:</strong> Built a modern web application
+      using <strong>Next.js</strong> to facilitate ticket sales and provide an intuitive
+      admin dashboard for managing mobile app content and controlling ticket sales.
+    </li>
+    <li>
+      <strong>Image Management:</strong> Leveraged
+      <strong>Amazon S3</strong> for secure, scalable storage of the large volume
+      of images used throughout the app, ensuring efficient content delivery.
+    </li>
+    <li>
+      <strong>Team Leadership & Agile Process:</strong> Oversaw the entire outsourced
+      development process, collaborated with other frontend and backend specialists,
+      and mentored junior developers within a daily Agile environment, ensuring continuous
+      client engagement and timely feature implementations.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>Development Process</h3>
+
+  <ul>
+    <li>
+      <strong>Requirement Analysis & Planning:</strong> Conducted an in-depth analysis
+      of project requirements, translating client needs into clear technical specifications.
+    </li>
+    <li>
+      <strong>Design & Implementation:</strong> Transformed detailed Figma designs
+      into a fully functional mobile application using React Native and developed
+      a responsive web application with Next.js for ticket sales and content management.
+    </li>
+    <li>
+      <strong>Backend Development:</strong> Developed a secure and scalable RESTful
+      API using Node.js and MongoDB, hosted on AWS to support high-volume transactions
+      and seamless integration with both mobile and web platforms.
+    </li>
+    <li>
+      <strong>Image Management & Storage:</strong> Integrated Amazon S3 to handle
+      a large number of images, ensuring fast, reliable access and efficient storage
+      management.
+    </li>
+    <li>
+      <strong>Agile Collaboration:</strong> Conducted daily meetings with the client
+      for progress updates, received feedback, and coordinated new feature implementations,
+      while mentoring junior developers to maintain high standards and effective
+      workflows.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <p class="mb-4">
+    Key Skill: React Native, Next.js, AWS, AWS S3, Figma, Node.js, MongoDB.
+  </p>
+
+  <p class="mb-3">
+    <strong>Benefits of Technologies:</strong> Using React Native enabled a consistent
+    cross-platform mobile experience while reducing development time. Node.js and
+    MongoDB provided a robust and scalable backend solution, with AWS ensuring high
+    availability and security. Next.js improved web performance, SEO, and overall
+    user experience, and Amazon S3 delivered scalable, reliable storage for image-rich
+    content.
+  </p>
+
+  <p>
+    Casacor App stands as a testament to my ability to lead complex,
+    multi-faceted projects from end-to-end. I delivered a seamless and robust
+    solution by integrating modern technologies across mobile, backend, and web
+    platforms, all while mentoring team members and ensuring an agile,
+    client-focused development process.
+  </p>
+
+  <div class="project__gallery pswp-gallery" id="project__gallery">
+    {
+      images.map((image) => (
+        <a
+          href={image.src}
+          class="image-wrapper"
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          target="_blank"
+        >
+          <img src={image.src} loading="lazy" alt="Project screenshot" />
+        </a>
+      ))
+    }
+  </div>
+
+  <a
+    class="button--primary mt-10"
+    href="https://casacor.abril.com.br/en-US"
+    target="_blank">Project website</a
+  >
+
+  <CloseModalBtn />
+</div>
