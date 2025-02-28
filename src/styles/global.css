@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --swiper-theme-color: #335cff;
+}
+
 @theme {
   --color-primary: #335cff;
   --color-background: #21252a;
@@ -82,5 +86,10 @@
 
   .section__subtitle {
     @apply text-xs font-light text-center mb-7 md:mb-14 max-w-[600px] mx-auto;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    @apply text-3xl! md:text-4xl!;
   }
 }
