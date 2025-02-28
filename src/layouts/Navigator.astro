@@ -1,0 +1,193 @@
+<header class="header">
+  <nav class="header__nav">
+    <a href="./" class="logo">
+      <span class="name flex gap-3 font-medium items-center">
+        <img class="w-6 h-6" src="images/ico.png" alt="Code icon" />
+        <span class="leading-tight">Senior Fullstack Developer</span>
+      </span>
+    </a>
+
+    <div class="menu__items gap-4">
+      <ul class="">
+        <li class="menu__item"><a href="#home">Home</a></li>
+        <li class="menu__item"><a href="#about">About</a></li>
+        <li class="menu__item"><a href="#projects">Projects</a></li>
+        <li class="menu__item">
+          <a href="#testimonials">Testimonials</a>
+        </li>
+        <!-- <li class="menu__item"><a href="#blog">Blog</a></li> -->
+        <li class="menu__item"><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        title="Toggle theme"
+        aria-label="Toggle theme"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          width="2em"
+          height="2em"
+          fill="currentColor"
+          stroke-linecap="round"
+          class="theme-toggle__classic"
+          viewBox="0 0 32 32"
+        >
+          <clipPath id="theme-toggle__classic__cutout">
+            <path d="M0-5h30a1 1 0 0 0 9 13v24H0Z"></path>
+          </clipPath>
+          <g clip-path="url(#theme-toggle__classic__cutout)">
+            <circle cx="16" cy="16" r="9.34"></circle>
+            <g stroke="currentColor" stroke-width="1.5">
+              <path d="M16 5.5v-4"></path>
+              <path d="M16 30.5v-4"></path>
+              <path d="M1.5 16h4"></path>
+              <path d="M26.5 16h4"></path>
+              <path d="m23.4 8.6 2.8-2.8"></path>
+              <path d="m5.7 26.3 2.9-2.9"></path>
+              <path d="m5.8 5.8 2.8 2.8"></path>
+              <path d="m23.4 23.4 2.9 2.9"></path>
+            </g>
+          </g>
+        </svg>
+      </button>
+    </div>
+
+    <div class="header__mobile-menu"><span></span></div>
+  </nav>
+</header>
+
+<script>
+  // ------------- Header shadow on scroll ------------- //
+  const header = document.querySelector(".header");
+  window.addEventListener(
+    "scroll",
+    () => {
+      header?.classList.toggle(
+        "shadow-[0_2px_15px_-1px_rgba(0,0,0,0.2)]",
+        window.scrollY > 0
+      );
+    },
+    { passive: true }
+  );
+
+  // ------------- Set active menu link ------------- //
+  const activeLink = document.querySelector(
+    `.menu__items .menu__item a[href^="${location.hash}"]`
+  );
+  if (activeLink) {
+    activeLink.parentElement?.classList.add("menu--active");
+  }
+
+  // ------------- Scroll animation on menu link ------------- //
+  const menuItems = document.querySelectorAll(".menu__items li");
+  function animateScroll(e) {
+    e.preventDefault();
+    const target = e.target?.hash;
+    const $target = document.querySelector(target);
+
+    if ($target) {
+      const targetPosition =
+        $target.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let startTime = 0;
+
+      window.location.hash = target;
+      document.querySelectorAll(".menu__items li").forEach((item) => {
+        if (item.children[0].getAttribute("href") === target)
+          item.classList.add("menu--active");
+        else item.classList.remove("menu--active");
+      });
+
+      function animation(currentTime: number) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, 500);
+        window.scrollTo(0, run);
+        if (timeElapsed < 500) {
+          requestAnimationFrame(animation);
+        }
+      }
+
+      // Easing function for smooth animation
+      function ease(t: number, b: number, c: number, d: number) {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // Close mobile menu
+    const menuItems = document.querySelector(".menu__items");
+    if (menuItems?.classList.contains("mobile-active")) {
+      menuItems.classList.remove("mobile-active");
+      document
+        .querySelector(".header__mobile-menu")
+        ?.classList.remove("active");
+    }
+  }
+  menuItems.forEach((item) => item.addEventListener("click", animateScroll));
+  document
+    .querySelector("#home__cta")
+    ?.addEventListener("click", animateScroll);
+
+  // ------------- Mobile menu ------------- //
+  const menuTrigger = document.querySelector(".header__mobile-menu");
+  menuTrigger?.addEventListener("click", () => {
+    menuTrigger.classList.toggle("active");
+    const menuItems = document.querySelector(".menu__items");
+    if (menuItems) menuItems.classList.toggle("mobile-active");
+  });
+
+  // ------------- Theme toggle ------------- //
+  const html = document.documentElement;
+  const themeButton = document.getElementById("theme-toggle");
+  function initTheme() {
+    function getInitialTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      return savedTheme || systemTheme || "light";
+    }
+
+    function setTheme(theme: string) {
+      html.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+      if (theme === "dark") {
+        themeButton?.classList.add("theme-toggle--toggled");
+      } else {
+        themeButton?.classList.remove("theme-toggle--toggled");
+      }
+    }
+
+    function toggleTheme() {
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      setTheme(newTheme);
+    }
+
+    // Watch for system theme changes
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        if (!localStorage.getItem("theme")) {
+          setTheme(e.matches ? "dark" : "light");
+        }
+      });
+
+    const currentTheme = getInitialTheme();
+    setTheme(currentTheme);
+    return toggleTheme;
+  }
+  const toggleTheme = initTheme();
+  themeButton?.addEventListener("click", toggleTheme);
+</script>

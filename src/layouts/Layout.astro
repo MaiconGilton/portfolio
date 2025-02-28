@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/toggle-theme.css";
 ---
 
 <!doctype html>
@@ -28,6 +29,17 @@ import "../styles/global.css";
   </head>
 
   <body>
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
     <slot />
+
+    <script src="../scripts/local.js"></script>
+    <script type="text/javascript" src="scrollreveal.min.js"></script>
   </body>
 </html>

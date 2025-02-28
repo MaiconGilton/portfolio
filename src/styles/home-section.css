@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+@layer components {
+  .home__cta {
+    @apply self-center md:self-start my-10 bg-primary text-xl text-white font-bold py-2 px-6 rounded-xl  hover:brightness-90 shadow;
+  }
+
+  .social-buttons {
+    @apply flex gap-4 items-center justify-center md:justify-end;
+  }
+
+  .social-buttons svg path {
+    @apply fill-gray-500 dark:fill-gray-300;
+  }
+
+  .social-buttons a {
+    @apply w-6 duration-100 ease-in-out;
+  }
+
+  .social-buttons a:hover {
+    transform: scale(1.1);
+    @apply text-primary;
+  }
+
+  .social-buttons a:hover span,
+  .social-buttons a:hover svg path {
+    @apply fill-primary;
+  }
+
+  .social-buttons__download-resume {
+    @apply !w-auto flex gap-1 items-center;
+  }
+
+  .social-buttons__download-resume svg {
+    @apply w-6;
+  }
+
+  .social-buttons__download-resume span {
+    @apply whitespace-nowrap font-bold text-gray-500 dark:text-gray-300 text-sm;
+  }
+
+  .social-buttons__download-resume:hover span {
+    @apply text-primary;
+  }
+}
