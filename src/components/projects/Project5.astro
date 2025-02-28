@@ -1,0 +1,127 @@
+---
+import CloseModalBtn from "./CloseModalBtn.astro";
+
+const images = [
+  { src: "./images/screenshots/sumitomo/1.webp", width: 1286, height: 978 },
+  { src: "./images/screenshots/sumitomo/2.webp", width: 1537, height: 960 },
+  { src: "./images/screenshots/sumitomo/3.webp", width: 1537, height: 960 },
+  { src: "./images/screenshots/sumitomo/4.webp", width: 1537, height: 960 },
+  { src: "./images/screenshots/sumitomo/5.webp", width: 1537, height: 960 },
+  { src: "./images/screenshots/sumitomo/6.webp", width: 1537, height: 960 },
+  { src: "./images/screenshots/sumitomo/7.webp", width: 668, height: 1447 },
+  { src: "./images/screenshots/sumitomo/8.webp", width: 668, height: 1447 },
+  { src: "./images/screenshots/sumitomo/9.webp", width: 668, height: 1447 },
+  { src: "./images/screenshots/sumitomo/10.webp", width: 668, height: 1447 },
+  { src: "./images/screenshots/sumitomo/11.webp", width: 668, height: 1447 },
+];
+---
+
+<div class="project-details">
+  <h2>Sumitomo Chemical - Data Lake Dashboard</h2>
+
+  <p>
+    The Sumitomo Chemical Data Lake Dashboard is a sophisticated tool designed
+    to provide real-time insights into the company's vast data repository. This
+    project aimed to create an intuitive, interactive dashboard that empowers
+    stakeholders with easy access to critical data.
+  </p>
+
+  <p class="mt-2 text-sm">
+    Company: Globant | Sumitomo Chemical Co., Ltd. <br />
+    Role: Web UI Developer <br />
+    Period: March 2024 – December 2024
+  </p>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>Technical Overview</h3>
+
+  <ul>
+    <li>
+      <strong>Frontend Development:</strong> Built entirely with
+      <strong>React</strong> to deliver a dynamic and responsive dashboard experience.
+    </li>
+    <li>
+      <strong>Data Integration:</strong> Integrated with the company's Data Lake
+      to visualize and analyze large volumes of data in real time.
+    </li>
+    <li>
+      <strong>Team Collaboration:</strong> Worked in a cross-functional team consisting
+      of two backend developers, one designer, one project manager, one product designer,
+      and one QA specialist.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>Development Process</h3>
+
+  <ul>
+    <li>
+      <strong>Requirement Analysis & Planning:</strong> Collaborated with the team
+      and engaged in daily client meetings to understand the project requirements
+      and prioritize new implementations.
+    </li>
+    <li>
+      <strong>Design & Prototyping:</strong> Worked alongside designers and product
+      experts to translate client needs into a functional and aesthetically pleasing
+      dashboard.
+    </li>
+    <li>
+      <strong>Implementation:</strong> Developed a robust frontend using React, ensuring
+      the dashboard was responsive, interactive, and user-friendly.
+    </li>
+    <li>
+      <strong>Integration & Testing:</strong> Coordinated with backend developers
+      to ensure seamless data integration and worked closely with QA to verify functionality
+      and performance.
+    </li>
+    <li>
+      <strong>Continuous Communication:</strong> Held daily meetings with the client
+      to report progress, discuss new requirements, and fine-tune the dashboard features.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <p class="mb-4">Key Skill: React, Figma.</p>
+
+  <p class="mb-4">
+    Please note that this is a private project, so I cannot share a direct link
+    to access the dashboard outside of the company's website. However, I will be
+    sharing some screenshots to showcase the work in detail.
+  </p>
+
+  <div class="project__gallery pswp-gallery" id="project__gallery">
+    {
+      images.map((image) => (
+        <a
+          href={image.src}
+          class="image-wrapper"
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          target="_blank"
+        >
+          <img src={image.src} loading="lazy" alt="Project screenshot" />
+        </a>
+      ))
+    }
+  </div>
+
+  <p class="mb-6">
+    The Sumitomo Chemical Data Lake Dashboard stands as a testament to my
+    ability to craft sophisticated, data-driven frontend solutions using React.
+    This project not only highlights my technical expertise in building dynamic
+    user interfaces but also underscores my commitment to effective
+    collaboration and agile client communication in a cross-functional team
+    environment.
+  </p>
+
+  <a
+    class="button--primary mt-10"
+    href="https://www.sumitomo-chem.co.jp/english/"
+    target="_blank">Company's website</a
+  >
+
+  <CloseModalBtn />
+</div>
