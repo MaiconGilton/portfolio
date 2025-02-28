@@ -2,6 +2,7 @@
 @import "./preloader.css";
 @import "./header.css";
 @import "./home-section.css";
+@import "./project-details.css";
 @import "./project-section.css";
 
 @tailwind utilities;
