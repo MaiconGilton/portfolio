@@ -1,0 +1,44 @@
+---
+const projects = [
+  {
+    title: "react-native-customisable-alert",
+    description:
+      "This React Native simple library was built in top of react-native-modal to help you to easily customise your alerts. It works like a built in React Native Alert component but this is highly customisable. The catch of this library is that you can call it from anywhere in your code without extra components imports and variables to control it, which means a CLEANER CODE 😉!!!",
+    link: "https://github.com/MaiconGilton/react-native-customisable-alert",
+  },
+  {
+    title: "react-native-tip",
+    description:
+      "React Native Tip is a simple package inspired in MaterialUI-Tooltip that helps you to show a quick tip to the user and highlight some important item in your app. It is useful to explain the user some funcionality.",
+    link: "https://github.com/MaiconGilton/react-native-tip",
+  },
+];
+---
+
+<section
+  id="side-projects"
+  data-scroll-reveal="enter bottom move 0px over 0.4s after 0.3s"
+>
+  <h2 class="section__title">Side Projects</h2>
+
+  <p class="section__subtitle">
+    Explore my side projects, where I experiment with new ideas and
+    technologies.
+  </p>
+
+  <div class="side-projects__container">
+    {
+      projects.map((project) => (
+        <div class="mb-10">
+          <a href={project.link}>
+            <h3 class="primary--text mb-1 text-lg md:text-xl font-bold underline">
+              {project.title}
+            </h3>
+          </a>
+
+          <p class="mb-2 text-xs">{project.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
