@@ -145,4 +145,49 @@
     const menuItems = document.querySelector(".menu__items");
     if (menuItems) menuItems.classList.toggle("mobile-active");
   });
+
+  // ------------- Theme toggle ------------- //
+  const html = document.documentElement;
+  const themeButton = document.getElementById("theme-toggle");
+  function initTheme() {
+    function getInitialTheme() {
+      const savedTheme = localStorage.getItem("theme");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      return savedTheme || systemTheme || "light";
+    }
+
+    function setTheme(theme: string) {
+      html.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+      if (theme === "dark") {
+        themeButton?.classList.add("theme-toggle--toggled");
+      } else {
+        themeButton?.classList.remove("theme-toggle--toggled");
+      }
+    }
+
+    function toggleTheme() {
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      setTheme(newTheme);
+    }
+
+    // Watch for system theme changes
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        if (!localStorage.getItem("theme")) {
+          setTheme(e.matches ? "dark" : "light");
+        }
+      });
+
+    const currentTheme = getInitialTheme();
+    setTheme(currentTheme);
+    return toggleTheme;
+  }
+  const toggleTheme = initTheme();
+  themeButton?.addEventListener("click", toggleTheme);
 </script>
