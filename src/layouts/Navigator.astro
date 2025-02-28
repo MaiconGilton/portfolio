@@ -137,4 +137,12 @@
   document
     .querySelector("#home__cta")
     ?.addEventListener("click", animateScroll);
+
+  // ------------- Mobile menu ------------- //
+  const menuTrigger = document.querySelector(".header__mobile-menu");
+  menuTrigger?.addEventListener("click", () => {
+    menuTrigger.classList.toggle("active");
+    const menuItems = document.querySelector(".menu__items");
+    if (menuItems) menuItems.classList.toggle("mobile-active");
+  });
 </script>
