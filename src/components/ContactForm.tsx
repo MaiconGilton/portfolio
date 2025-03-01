@@ -117,7 +117,7 @@ const ContactForm = () => {
 
 				<button
 					type="submit"
-					className="button--primary w-full font-medium text-sm p-3"
+					className="button--primary w-full"
 					disabled={status === "pending"}
 				>
 					{status === "pending" ? "Sending..." : "Send Message"}
