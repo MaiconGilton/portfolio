@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -80,7 +80,7 @@ const Testimonials = () => {
 					el: ".swiper-pagination",
 					dynamicBullets: true,
 				}}
-				modules={[Navigation, Pagination]}
+				modules={[Navigation, Pagination, Autoplay]}
 				navigation={{
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
