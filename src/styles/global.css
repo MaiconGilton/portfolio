@@ -73,11 +73,11 @@
 
 @layer components {
   .button--primary {
-    @apply bg-primary md:text-lg text-center text-white font-bold py-2 px-6 rounded-xl hover:brightness-90 shadow;
+    @apply bg-primary text-sm md:text-base text-center text-white font-bold py-2 px-6 rounded-xl hover:brightness-90 shadow uppercase;
   }
 
   .button--neutral {
-    @apply md:text-lg text-center text-primary border border-primary font-semibold py-2 px-6 rounded-xl hover:brightness-90;
+    @apply text-sm md:text-base text-center text-primary border border-primary font-semibold py-2 px-6 rounded-xl hover:brightness-90 uppercase;
   }
 
   .section__title {
