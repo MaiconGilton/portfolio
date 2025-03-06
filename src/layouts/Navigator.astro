@@ -1,4 +1,7 @@
-<header class="header">
+<header
+  class="header"
+  data-scroll-reveal="enter top move 30px over 0.4s after 0.4s"
+>
   <nav class="header__nav">
     <a href="./" class="logo">
       <span class="name flex gap-3 font-medium items-center">
@@ -74,78 +77,6 @@
     { passive: true }
   );
 
-  // ------------- Set active menu link ------------- //
-  const activeLink = document.querySelector(
-    `.menu__items .menu__item a[href^="${location.hash}"]`
-  );
-  if (activeLink) {
-    activeLink.parentElement?.classList.add("menu--active");
-  }
-
-  // ------------- Scroll animation on menu link ------------- //
-  const menuItems = document.querySelectorAll(".menu__items li");
-  function animateScroll(e) {
-    e.preventDefault();
-    const target = e.target?.hash;
-    const $target = document.querySelector(target);
-
-    if ($target) {
-      const targetPosition =
-        $target.getBoundingClientRect().top + window.pageYOffset;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      let startTime = 0;
-
-      window.location.hash = target;
-      document.querySelectorAll(".menu__items li").forEach((item) => {
-        if (item.children[0].getAttribute("href") === target)
-          item.classList.add("menu--active");
-        else item.classList.remove("menu--active");
-      });
-
-      function animation(currentTime: number) {
-        if (!startTime) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const run = ease(timeElapsed, startPosition, distance, 500);
-        window.scrollTo(0, run);
-        if (timeElapsed < 500) {
-          requestAnimationFrame(animation);
-        }
-      }
-
-      // Easing function for smooth animation
-      function ease(t: number, b: number, c: number, d: number) {
-        t /= d / 2;
-        if (t < 1) return (c / 2) * t * t + b;
-        t--;
-        return (-c / 2) * (t * (t - 2) - 1) + b;
-      }
-
-      requestAnimationFrame(animation);
-    }
-
-    // Close mobile menu
-    const menuItems = document.querySelector(".menu__items");
-    if (menuItems?.classList.contains("mobile-active")) {
-      menuItems.classList.remove("mobile-active");
-      document
-        .querySelector(".header__mobile-menu")
-        ?.classList.remove("active");
-    }
-  }
-  menuItems.forEach((item) => item.addEventListener("click", animateScroll));
-  document
-    .querySelector("#home__cta")
-    ?.addEventListener("click", animateScroll);
-
-  // ------------- Mobile menu ------------- //
-  const menuTrigger = document.querySelector(".header__mobile-menu");
-  menuTrigger?.addEventListener("click", () => {
-    menuTrigger.classList.toggle("active");
-    const menuItems = document.querySelector(".menu__items");
-    if (menuItems) menuItems.classList.toggle("mobile-active");
-  });
-
   // ------------- Theme toggle ------------- //
   const html = document.documentElement;
   const themeButton = document.getElementById("theme-toggle");
@@ -190,4 +121,78 @@
   }
   const toggleTheme = initTheme();
   themeButton?.addEventListener("click", toggleTheme);
+
+  // ------------- Set active menu link ------------- //
+  const activeLink = document.querySelector(
+    `.menu__items .menu__item a[href^="${location.hash}"]`
+  );
+  if (activeLink) {
+    activeLink.parentElement?.classList.add("menu--active");
+  }
+
+  // ------------- Scroll animation on menu link ------------- //
+  const menuItems = document.querySelectorAll(".menu__items li");
+  function animateScroll(e) {
+    e.preventDefault();
+    const target = e.target?.hash;
+    const $target = document.querySelector(target);
+
+    if ($target) {
+      const targetPosition =
+        $target.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      let startTime = 0;
+
+      window.location.hash = target;
+      // biome-ignore lint/complexity/noForEach: <explanation>
+      document.querySelectorAll(".menu__items li").forEach((item) => {
+        if (item.children[0].getAttribute("href") === target)
+          item.classList.add("menu--active");
+        else item.classList.remove("menu--active");
+      });
+
+      function animation(currentTime: number) {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, 500);
+        window.scrollTo(0, run);
+        if (timeElapsed < 500) {
+          requestAnimationFrame(animation);
+        }
+      }
+
+      // Easing function for smooth animation
+      function ease(t: number, b: number, c: number, d: number) {
+        t /= d / 2;
+        if (t < 1) return (c / 2) * t * t + b;
+        t--;
+        return (-c / 2) * (t * (t - 2) - 1) + b;
+      }
+
+      requestAnimationFrame(animation);
+    }
+
+    // Close mobile menu
+    const menuItems = document.querySelector(".menu__items");
+    if (menuItems?.classList.contains("mobile-active")) {
+      menuItems.classList.remove("mobile-active");
+      document
+        .querySelector(".header__mobile-menu")
+        ?.classList.remove("active");
+    }
+  }
+  // biome-ignore lint/complexity/noForEach: <explanation>
+  menuItems.forEach((item) => item.addEventListener("click", animateScroll));
+  document
+    .querySelector("#home__cta")
+    ?.addEventListener("click", animateScroll);
+
+  // ------------- Mobile menu ------------- //
+  const menuTrigger = document.querySelector(".header__mobile-menu");
+  menuTrigger?.addEventListener("click", () => {
+    menuTrigger.classList.toggle("active");
+    const menuItems = document.querySelector(".menu__items");
+    if (menuItems) menuItems.classList.toggle("mobile-active");
+  });
 </script>
