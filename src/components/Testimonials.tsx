@@ -12,7 +12,7 @@ const testimonials = [
 		project: "Amateur Golf Challenge",
 		position: "CEO Amateur Golf Challenge PTY LTD",
 		comment:
-			"Hey Team, I just wanted to say a big thanks to all of you for getting the new app live.The response has been amazing!!!! Everyone I have ever spoken to has said the app is incredible - and they don’t mean the concept, they mean the form and function. I have worked with many developers and designers over the last 20 years - you guys are by far the best and it’s a to work with you all.Thanks for everything you have done and brought to this business.We could not have done pleasure it without you. 🙌🏻",
+			"Hey Team, I just wanted to say a big thanks to all of you for getting the new app live. The response has been amazing!!!! Everyone I have ever spoken to has said the app is incredible - and they don’t mean the concept, they mean the form and function. I have worked with many developers and designers over the last 20 years - you guys are by far the best and it’s a pleasure to work with you all. Thanks for everything you have done and brought to this business. We could not have done it without you.",
 	},
 	{
 		name: "Raniel Almeida",
@@ -72,7 +72,7 @@ const Testimonials = () => {
 				slidesPerView={1}
 				autoplay={{
 					delay: 2500,
-					disableOnInteraction: false,
+					disableOnInteraction: true,
 				}}
 				keyboard={{ enabled: true }}
 				pagination={{
