@@ -1,0 +1,193 @@
+---
+import CloseModalBtn from "./CloseModalBtn.astro";
+
+const images = [
+  { src: "./images/screenshots/managesmartr/1.webp", width: 1440, height: 900 },
+  { src: "./images/screenshots/managesmartr/2.webp", width: 1440, height: 900 },
+  { src: "./images/screenshots/managesmartr/3.webp", width: 1440, height: 900 },
+  { src: "./images/screenshots/managesmartr/4.webp", width: 1440, height: 900 },
+  { src: "./images/screenshots/managesmartr/5.webp", width: 1440, height: 900 },
+  { src: "./images/screenshots/managesmartr/6.webp", width: 1440, height: 900 },
+  { src: "./images/screenshots/managesmartr/7.webp", width: 1440, height: 900 },
+  { src: "./images/screenshots/managesmartr/8.webp", width: 1440, height: 900 },
+  { src: "./images/screenshots/managesmartr/9.webp", width: 1440, height: 900 },
+  {
+    src: "./images/screenshots/managesmartr/10.webp",
+    width: 1440,
+    height: 900,
+  },
+  {
+    src: "./images/screenshots/managesmartr/11.webp",
+    width: 1440,
+    height: 900,
+  },
+  {
+    src: "./images/screenshots/managesmartr/12.webp",
+    width: 1440,
+    height: 900,
+  },
+  {
+    src: "./images/screenshots/managesmartr/13.webp",
+    width: 1440,
+    height: 900,
+  },
+  {
+    src: "./images/screenshots/managesmartr/14.webp",
+    width: 1440,
+    height: 900,
+  },
+  {
+    src: "./images/screenshots/managesmartr/15.webp",
+    width: 1440,
+    height: 900,
+  },
+];
+---
+
+<div class="project-details">
+  <h2>ManageSmartr — Operations & Order Management Platform</h2>
+
+  <p>
+    ManageSmartr is a comprehensive web platform built to modernize and
+    streamline the workflow of steel wall delivery operations. The system
+    centralizes order management, client collaboration, and internal operations
+    into a single, role-based application used daily by administrators, clients,
+    and field employees.
+  </p>
+
+  <p class="mt-2 text-sm">
+    Company: Built Smartr<br />
+    Role: Tech Lead / Senior Frontend Engineer<br />
+    Team: 1 Tech Lead (me), 2 Junior Developers, 1 Intermediate Developer<br />
+    Period: October 2025 - December 2025
+  </p>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>My Role & Leadership</h3>
+
+  <p>
+    As the Tech Lead, I was responsible for both the technical direction and the
+    day-to-day execution of the project. I assumed ownership of the most complex
+    architectural decisions, critical features, and performance-sensitive flows,
+    while also leading and mentoring the development team.
+  </p>
+
+  <ul>
+    <li>
+      Defined the overall frontend architecture using <strong
+        >Next.js App Router</strong
+      >
+      and established scalable patterns for routing, layouts, and role-based access.
+    </li>
+    <li>
+      Implemented the most complex application areas, including authentication
+      flows, role-based dashboards, and real-time order state handling.
+    </li>
+    <li>
+      Led code reviews, guided juniors on best practices, and ensured consistent
+      code quality across the team.
+    </li>
+    <li>
+      Translated business requirements into clear technical tasks and
+      milestones, balancing delivery speed with long-term maintainability.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>Technical Overview</h3>
+
+  <ul>
+    <li>
+      <strong>Frontend & Platform:</strong> Built with
+      <strong>Next.js 15</strong> (App Router) and <strong>TypeScript</strong>,
+      focusing on scalability, performance, and a clean separation of concerns
+      between admin, client, and employee portals.
+    </li>
+    <li>
+      <strong>Role-Based Interfaces:</strong> Designed and implemented distinct experiences
+      for <strong>Admins</strong>, <strong>Clients</strong>,
+      <strong>Sales</strong>, <strong>Manufacturers</strong>, and
+      <strong>Drivers</strong>, each with tailored permissions and workflows.
+    </li>
+    <li>
+      <strong>State & Data Management:</strong> Used
+      <strong>Zustand</strong> for predictable client-side state and
+      <strong>Supabase</strong> for authentication, database access, and real-time
+      data.
+    </li>
+    <li>
+      <strong>UI & Design System:</strong> Established a consistent design system
+      using <strong>Tailwind CSS</strong>, <strong>Radix UI</strong>, and
+      <strong>Shadcn UI</strong>, ensuring accessibility and reusability.
+    </li>
+    <li>
+      <strong>Forms & Validation:</strong> Implemented robust form handling with
+      <strong>React Hook Form</strong> and <strong>Zod</strong>, reducing errors
+      and improving data integrity across complex workflows.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>Key Features Delivered</h3>
+
+  <ul>
+    <li>
+      <strong>Admin Dashboard:</strong> Centralized control over clients, projects,
+      orders, PDFs, and system-wide metrics.
+    </li>
+    <li>
+      <strong>Client Portal:</strong> Kanban-based order tracking, order creation,
+      modification requests, and real-time status visibility.
+    </li>
+    <li>
+      <strong>Employee Views:</strong> Purpose-built screens for sales, manufacturing,
+      and delivery drivers, optimized for clarity and speed.
+    </li>
+    <li>
+      <strong>End-to-End Order Lifecycle:</strong> From order creation to delivery,
+      with clear status transitions and role-aware actions.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <p class="mb-4">
+    <strong>Key Skills:</strong> Next.js, TypeScript, Supabase, Tailwind CSS, Zustand,
+    React Hook Form, Zod, System Architecture, Technical Leadership.
+  </p>
+
+  <p class="mb-3">
+    <strong>Impact:</strong> ManageSmartr significantly improved operational clarity
+    and reduced friction between clients, administrators, and field employees. By
+    introducing clear role separation, real-time visibility, and a scalable frontend
+    architecture, the platform enabled smoother collaboration and faster decision-making
+    across the entire delivery pipeline.
+  </p>
+
+  <p>
+    This project highlights my ability to lead a team, take ownership of complex
+    technical challenges, and deliver a production-ready platform that balances
+    business needs, user experience, and long-term maintainability.
+  </p>
+
+  <div class="project__gallery pswp-gallery" id="project__gallery">
+    {
+      images.map((image) => (
+        <a
+          href={image.src}
+          class="image-wrapper"
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          target="_blank"
+        >
+          <img src={image.src} loading="lazy" alt="ManageSmartr screenshot" />
+        </a>
+      ))
+    }
+  </div>
+
+  <CloseModalBtn />
+</div>

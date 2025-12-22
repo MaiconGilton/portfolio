@@ -1,0 +1,204 @@
+---
+import CloseModalBtn from "./CloseModalBtn.astro";
+
+const images = [
+  {
+    src: "./images/screenshots/vocabulary-dojo/0.webp",
+    width: 932,
+    height: 2016,
+  },
+  {
+    src: "./images/screenshots/vocabulary-dojo/1.webp",
+    width: 932,
+    height: 2016,
+  },
+  {
+    src: "./images/screenshots/vocabulary-dojo/2.webp",
+    width: 932,
+    height: 2016,
+  },
+  {
+    src: "./images/screenshots/vocabulary-dojo/3.webp",
+    width: 932,
+    height: 2016,
+  },
+  {
+    src: "./images/screenshots/vocabulary-dojo/4.webp",
+    width: 932,
+    height: 2016,
+  },
+  {
+    src: "./images/screenshots/vocabulary-dojo/5.webp",
+    width: 932,
+    height: 2016,
+  },
+];
+---
+
+<div class="project-details">
+  <h2>Vocabulary Dojo — AI-Powered iOS Vocabulary Training App</h2>
+
+  <p>
+    Vocabulary Dojo is an iOS application designed to help users build and
+    retain vocabulary through structured flashcards and focused repetition. The
+    project was fully conceived, designed, developed, deployed, and published by
+    me end-to-end, covering product design, mobile development, backend
+    architecture, infrastructure, and App Store delivery.
+  </p>
+
+  <p class="mt-2 text-sm">
+    Role: Solo Developer / Product Designer / Backend Engineer<br />
+    Platform: iOS (App Store)<br />
+    Period: 2024
+  </p>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>End-to-End Ownership & Responsible AI Usage</h3>
+
+  <p>
+    Vocabulary Dojo is a fully independent project where I owned the complete
+    lifecycle of the product. I leveraged AI tools during both the design and
+    development phases to accelerate ideation, validate approaches, and explore
+    alternatives — while maintaining full responsibility for the final
+    implementation.
+  </p>
+
+  <p>
+    As a responsible developer, I reviewed, refined, and validated every design
+    decision and every line of code before shipping to production, ensuring
+    correctness, security, maintainability, and long-term scalability.
+  </p>
+
+  <ul>
+    <li>
+      Designed the complete UX/UI in <strong>Figma</strong>, using AI-assisted
+      exploration to iterate quickly while retaining final design ownership.
+    </li>
+    <li>
+      Developed and published the native iOS application, handling App Store
+      certificates, TestFlight, provisioning, and release management.
+    </li>
+    <li>
+      Architected and implemented a production-ready backend API using
+      <strong>Go (Golang)</strong>, with clean architecture principles and
+      strict code review standards applied throughout.
+    </li>
+    <li>
+      Built the public landing and marketing website using <strong>Astro</strong
+      >, optimized for performance, accessibility, and SEO.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>Technical Overview</h3>
+
+  <ul>
+    <li>
+      <strong>iOS Application:</strong> Native iOS app focused on fast interactions,
+      smooth animations, and a distraction-free learning experience.
+    </li>
+    <li>
+      <strong>AI-Powered Flashcards:</strong> Integrated AI to generate
+      <strong>real-time flashcard content</strong> tailored to user input, supporting
+      <strong>12 different languages</strong>.
+    </li>
+    <li>
+      <strong>Backend API:</strong> RESTful API built with <strong>Go</strong>,
+      following clean architecture patterns and designed for performance and
+      scale.
+    </li>
+    <li>
+      <strong>Authentication & Security:</strong> JWT-based authentication, strict
+      input validation, sanitization, and defensive middleware.
+    </li>
+    <li>
+      <strong>Database:</strong>
+      <strong>MongoDB</strong> for flexible storage of users, flashcards, and learning
+      data.
+    </li>
+    <li>
+      <strong>Observability:</strong> Production monitoring with
+      <strong>Prometheus</strong> and <strong>Grafana</strong>, including custom
+      metrics, logging, and graceful shutdowns.
+    </li>
+    <li>
+      <strong>Infrastructure:</strong> Fully Dockerized services with separate development,
+      staging, and production environments and Traefik routing.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <h3>Key Features</h3>
+
+  <ul>
+    <li>
+      AI-generated flashcards created on demand based on user goals and language
+      selection.
+    </li>
+    <li>
+      Support for 12 languages, enabling multilingual vocabulary training.
+    </li>
+    <li>Secure user authentication and account management.</li>
+    <li>Flashcard CRUD operations with validated and sanitized inputs.</li>
+    <li>Scalable backend with production-grade monitoring and logging.</li>
+    <li>
+      Lightweight, high-performance landing page for product discovery and
+      onboarding.
+    </li>
+  </ul>
+
+  <div class="w-full bg-gray-400 h-[1px] my-5 md:my-10"></div>
+
+  <p class="mb-4">
+    <strong>Key Skills:</strong> iOS Development, Go (Golang), AI Integration, REST
+    APIs, MongoDB, Docker, Prometheus, Grafana, Astro, Figma, Product Ownership, App
+    Store Deployment.
+  </p>
+
+  <p class="mb-3">
+    <strong>Why this project matters:</strong> Vocabulary Dojo demonstrates my ability
+    to responsibly leverage AI as a productivity multiplier while maintaining full
+    technical ownership. It showcases end-to-end product thinking, backend engineering
+    depth, AI integration, infrastructure awareness, and the discipline required to
+    ship a reliable, user-facing product independently.
+  </p>
+
+  <p>
+    This project reflects how I build software as a product — combining
+    AI-assisted workflows, solid engineering fundamentals, and operational
+    excellence into a cohesive, production-ready system.
+  </p>
+
+  <div class="project__gallery pswp-gallery" id="project__gallery">
+    {
+      images.map((image) => (
+        <a
+          href={image.src}
+          class="image-wrapper"
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          target="_blank"
+        >
+          <img
+            src={image.src}
+            loading="lazy"
+            alt="Vocabulary Dojo screenshot"
+          />
+        </a>
+      ))
+    }
+  </div>
+
+  <a
+    class="button--primary mt-10"
+    href="https://vocabularydojo.com"
+    target="_blank"
+  >
+    Project website
+  </a>
+
+  <CloseModalBtn />
+</div>

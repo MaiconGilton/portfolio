@@ -6,6 +6,8 @@ import Project4 from "../../components/projects/Project4.astro";
 import Project5 from "../../components/projects/Project5.astro";
 import Project6 from "../../components/projects/Project6.astro";
 import Project7 from "../../components/projects/Project7.astro";
+import Project8 from "../../components/projects/Project8.astro";
+import Project9 from "../../components/projects/Project9.astro";
 
 const { id } = Astro.params;
 
@@ -19,12 +21,14 @@ export function getStaticPaths() {
     5: Project5,
     6: Project6,
     7: Project7,
+    8: Project8,
+    9: Project9,
   };
   return Object.keys(projectMap).map((id) => ({ params: { id } }));
 }
 
 // Map ID to the correct component
-const projectMap = {
+const projectMap: Record<string, any> = {
   1: Project1,
   2: Project2,
   3: Project3,
@@ -32,6 +36,8 @@ const projectMap = {
   5: Project5,
   6: Project6,
   7: Project7,
+  8: Project8,
+  9: Project9,
 };
 const SelectedProject = projectMap[id];
 ---
