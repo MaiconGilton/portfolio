@@ -5,18 +5,21 @@ const projects = [
     description:
       "A highly performant, accessible, and swipeable tab component for React that mimics native mobile gestures.",
     link: "https://maicongilton.github.io/react-fluid-tabs/",
+    image: "react-fluid-tabs.webp",
   },
   {
-    title: "react-native-tip",
+    title: "React Native Tip",
     description:
       "React Native Tip is a simple package inspired in MaterialUI-Tooltip that helps you to show a quick tip to the user and highlight some important item in your app. It is useful to explain the user some functionality.",
     link: "https://github.com/MaiconGilton/react-native-tip",
+    image: "react-native-tip.gif",
   },
   {
-    title: "react-native-customisable-alert",
+    title: "React Native Customisable Alert",
     description:
       "This React Native simple library was built in top of react-native-modal to help you to easily customize your alerts. It works like a built in React Native Alert component but this is highly customizable. The catch of this library is that you can call it from anywhere in your code without extra components imports and variables to control it, which means a CLEANER CODE 😉!!!",
     link: "https://github.com/MaiconGilton/react-native-customisable-alert",
+    image: "react-native-customisable-alert.gif",
   },
 ];
 ---
@@ -32,18 +35,29 @@ const projects = [
     technologies.
   </p>
 
-  <div class="side-projects__container">
+  <div
+    class="side-projects__container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+  >
     {
       projects.map((project) => (
-        <div class="mb-10">
-          <a href={project.link} target="_blank">
-            <h3 class="primary--text mb-1 text-lg md:text-xl font-bold underline">
-              {project.title}
-            </h3>
-          </a>
+        <a
+          href={project.link}
+          target="_blank"
+          class="flex flex-col items-center gap-4 p-5 border border-gray-200 dark:border-gray-600 rounded-xl bg-background-card dark:bg-background-card-dark duration-300 ease-in-out md:hover:scale-102"
+        >
+          <h3 class="primary--text mb-1 text-lg md:text-xl font-bold">
+            {project.title}
+          </h3>
 
-          <p class="mb-2 text-xs">{project.description}</p>
-        </div>
+          <img
+            src={`images/side-projects/${project.image}`}
+            alt="avatar"
+            class="max-h-[500px]"
+            loading="lazy"
+          />
+
+          <p class="mb-2 text-xs text-center">{project.description}</p>
+        </a>
       ))
     }
   </div>
