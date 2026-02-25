@@ -2,7 +2,7 @@
   class="header"
   data-scroll-reveal="enter top move 30px over 0.4s after 0.4s"
 >
-  <nav class="header__nav">
+  <nav class="header__nav" role="navigation">
     <a href="./" class="logo">
       <span class="name flex gap-3 font-medium items-center">
         <img class="w-6 h-6" src="images/ico.png" alt="Code icon" />
@@ -66,16 +66,11 @@
 <script>
   // ------------- Header shadow on scroll ------------- //
   const header = document.querySelector(".header");
-  window.addEventListener(
-    "scroll",
-    () => {
-      header?.classList.toggle(
-        "shadow-[0_2px_15px_-1px_rgba(0,0,0,0.2)]",
-        window.scrollY > 0
-      );
-    },
-    { passive: true }
-  );
+  function handleHeaderScroll() {
+    header?.classList.toggle("header--scrolled", window.scrollY > 0);
+  }
+  window.addEventListener("scroll", handleHeaderScroll, { passive: true });
+  handleHeaderScroll();
 
   // ------------- Theme toggle ------------- //
   const html = document.documentElement;
@@ -124,7 +119,7 @@
 
   // ------------- Set active menu link ------------- //
   const activeLink = document.querySelector(
-    `.menu__items .menu__item a[href^="${location.hash}"]`
+    `.menu__items .menu__item a[href^="${location.hash}"]`,
   );
   if (activeLink) {
     activeLink.parentElement?.classList.add("menu--active");
