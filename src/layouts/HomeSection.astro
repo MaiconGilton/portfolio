@@ -6,6 +6,7 @@ import SocialIcons from "../components/SocialIcons.astro";
   id="home"
   class="h-screen pt-10 md:pt-16 flex flex-col-reverse md:flex-row items-center gap-10 justify-center md:justify-between"
   id="about"
+  role="main"
 >
   <div class="flex flex-col md:w-1/2">
     <h1
@@ -17,7 +18,7 @@ import SocialIcons from "../components/SocialIcons.astro";
     </h1>
 
     <div
-      class="w-full bg-gray-400 h-[1px] my-5 md:my-10"
+      class="w-full bg-gray-400 h-1px my-5 md:my-10"
       data-scroll-reveal="enter right over 0.4s after 0.4s"
     >
     </div>
@@ -48,14 +49,15 @@ import SocialIcons from "../components/SocialIcons.astro";
   </div>
 
   <div
-    class="md:w-1/2 rounded-[200px] aspect-square h-auto max-w-[200px] md:max-w-[400px] overflow-hidden bg-[gray] border border-gray-400"
+    class="md:w-1/2 rounded-[200px] aspect-square h-auto max-w-50 md:max-w-100 overflow-hidden bg-[gray] border border-gray-400"
     data-scroll-reveal="enter top move 30px over 0.4s after 0.4s"
   >
     <img
-      class="max-h-[300px] md:max-h-[500px] m-auto"
+      class="max-h-75 md:max-h-125 m-auto"
       src="./images/profile.webp"
       alt="User image"
-      loading="lazy"
+      loading="eager"
+      fetchpriority="high"
     />
   </div>
 </section>
