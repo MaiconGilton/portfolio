@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+@layer components {
+  .experience__container {
+    @apply flex flex-col gap-6 max-w-[900px] mx-auto;
+  }
+
+  .experience__item {
+    @apply flex gap-4 md:gap-6 py-10 border-b border-gray-300 dark:border-white/20 last:border-0;
+  }
+
+  /* Logo Styles */
+  .experience__logo-container {
+    @apply flex-shrink-0;
+  }
+
+  .experience__logo-wrapper {
+    @apply w-12 h-12 md:w-14 md:h-14 bg-gray-50 dark:bg-white/5 rounded overflow-hidden flex items-center justify-center border border-gray-100 dark:border-white/10;
+  }
+
+  .experience__logo {
+    @apply w-full h-full object-contain;
+  }
+
+  .experience__logo-placeholder {
+    @apply hidden w-full h-full items-center justify-center bg-primary/10 text-primary font-bold text-xl md:text-2xl;
+  }
+
+  /* Body Styles */
+  .experience__body {
+    @apply flex-grow min-w-0;
+    /* min-w-0 prevents flex items from overflowing */
+  }
+
+  .experience__header {
+    @apply mb-3;
+  }
+
+  .experience__role {
+    @apply text-base md:text-lg font-bold text-gray-950 dark:text-white leading-snug hover:text-primary transition-colors cursor-default;
+  }
+
+  .experience__company {
+    @apply text-sm md:text-base font-medium text-gray-800 dark:text-gray-200;
+  }
+
+  .experience__metadata {
+    @apply flex flex-wrap items-center gap-x-3 gap-y-1 mt-1;
+  }
+
+  .experience__date {
+    @apply text-xs md:text-sm text-secondary-text dark:text-secondary-text-dark;
+  }
+
+  .experience__location {
+    @apply text-xs md:text-sm text-secondary-text dark:text-secondary-text-dark flex items-center gap-1;
+  }
+
+  /* Content Styles */
+  .experience__content {
+    @apply text-sm md:text-base text-secondary-text dark:text-secondary-text-dark leading-relaxed mb-4;
+  }
+
+  .experience__content p {
+    @apply mb-3 last:mb-0;
+  }
+
+  .experience__details {
+    @apply mt-4;
+  }
+
+  .experience__details h4 {
+    @apply font-bold text-gray-900 dark:text-white mb-2 text-xs md:text-sm;
+  }
+
+  .experience__details ul {
+    @apply list-disc list-outside ml-4 space-y-1 leading-tight text-sm;
+  }
+
+  .experience__details li {
+    @apply pl-1;
+  }
+
+  /* Skills & Footer */
+  .experience__skills {
+    @apply flex flex-wrap gap-2 mt-4;
+  }
+
+  .experience__skill {
+    @apply text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded-full border border-gray-200 dark:border-white/10 text-secondary-text dark:text-secondary-text-dark bg-gray-50/50 dark:bg-white/5;
+  }
+}

@@ -14,6 +14,7 @@
       <ul class="">
         <li class="menu__item"><a href="#home">Home</a></li>
         <li class="menu__item"><a href="#about">About</a></li>
+        <li class="menu__item"><a href="#experience">Experience</a></li>
         <li class="menu__item"><a href="#projects">Projects</a></li>
         <li class="menu__item">
           <a href="#testimonials">Testimonials</a>
@@ -127,7 +128,7 @@
 
   // ------------- Scroll animation on menu link ------------- //
   const menuItems = document.querySelectorAll(".menu__items li");
-  function animateScroll(e) {
+  function animateScroll(e: any) {
     e.preventDefault();
     const target = e.target?.hash;
     const $target = document.querySelector(target);

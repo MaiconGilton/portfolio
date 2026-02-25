@@ -4,6 +4,7 @@
 @import "./home-section.css";
 @import "./project-details.css";
 @import "./project-section.css";
+@import "./experience-section.css";
 
 @tailwind utilities;
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

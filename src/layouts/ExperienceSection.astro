@@ -1,0 +1,199 @@
+---
+const experiences = [
+  {
+    role: "Professional Development (Academic)",
+    company: "Cornerstone International Community College of Canada (CICC)",
+    duration: "Jan 2025 - Jan 2025 · 1 mo",
+    location: "Vancouver, British Columbia · Remote",
+    logo: "/images/experience/cornerstone.webp",
+    description: `Relocated to Vancouver to advance technical expertise and expand global perspective through formal studies in Web Development. 
+
+During this period, strengthened foundational and practical knowledge in HTML, CSS, JavaScript, React, Node.js, and RESTful APIs, with a focus on modern development practices and real-world project implementation.`,
+    skills: ["React", "Node.js", "REST APIs", "Modern JS", "Technical English"],
+  },
+  {
+    role: "Web UI Developer",
+    company: "Globant · Full-time",
+    duration: "Aug 2021 - Dec 2024 · 3 yrs 5 mos",
+    location: "São Paulo, Brazil · Remote",
+    logo: "/images/experience/globant.jpeg",
+    description:
+      "Delivered enterprise web and mobile solutions in a global consultancy environment, working with cross-functional Agile teams (design, backend, QA).",
+    contributions: [
+      "Built scalable UI modules using React and TypeScript for enterprise dashboards and internal platforms",
+      "Integrated REST APIs and data-heavy workflows into responsive, maintainable frontend components",
+      "Improved maintainability through reusable component patterns and standardized UI architecture",
+      "Collaborated in Agile/Scrum teams delivering production-ready features with stable releases",
+    ],
+    skills: [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "REST APIs",
+      "HTML/CSS",
+      "Agile Methodologies",
+    ],
+  },
+  {
+    role: "React Native Developer (Contract)",
+    company: "Amateur Golf Challenge · Contract",
+    duration: "Oct 2021 - Nov 2022 · 1 yr 2 mos",
+    location: "Australia · Remote",
+    logo: "/images/experience/agc.webp",
+    description:
+      "Client project delivered in parallel to my full-time role (part-time / freelance).",
+    contributions: [
+      "Built a React Native cross-platform mobile app for golf competitions (iOS/Android)",
+      "Implemented user flows for registration, tournaments, score tracking, and real-time updates",
+      "Integrated REST APIs and delivered UI aligned with Figma designs",
+      "Ensured stable navigation, form handling, and smooth cross-platform behavior",
+    ],
+    skills: [
+      "React Native",
+      "TypeScript",
+      "JavaScript",
+      "REST APIs",
+      "Mobile UX",
+      "Figma",
+    ],
+  },
+  {
+    role: "Tech Lead / Full Stack Developer",
+    company: "CASACOR · Contract",
+    duration: "Aug 2020 - Oct 2021 · 1 yr 3 mos",
+    location: "São José dos Campos, São Paulo, Brazil · Remote",
+    logo: "/images/experience/casacor.webp",
+    contributions: [
+      "Delivered ticket sales and content/admin platforms across web and mobile",
+      "Built Next.js web/admin platform and React Native mobile app features",
+      "Integrated backend services (Node.js + MongoDB) and supported AWS infrastructure for media handling (S3)",
+      "Improved delivery quality through mentoring and consistent implementation aligned with Figma designs",
+    ],
+    skills: ["React", "Next.js", "React Native", "Node.js", "MongoDB", "AWS"],
+  },
+  {
+    role: "Founder | Software Consultant (PJ / Contracts)",
+    company: "MGSF Solucoes TI LTDA · Self-employed",
+    duration: "May 2019 - Jun 2021 · 2 yrs 2 mos",
+    location: "São José dos Campos, São Paulo, Brazil · Remote",
+    logo: "/images/experience/mgsf.webp",
+    description:
+      "Brazil-based software consultancy (PJ/CNPJ) delivering contract projects for clients in web and mobile.",
+    contributions: [
+      "End-to-end delivery (architecture → development → release/support)",
+      "React / Next.js dashboards and operational platforms",
+      "React Native apps with push notifications, geolocation, and offline-first patterns",
+      "Backend APIs using Node.js/Express (and Golang when needed), including auth and integrations",
+    ],
+    selectedProjects: [
+      "AgendamentosPop — Scheduling platform (React Native + Next.js + Node.js)",
+      "CASACOR App — Ticketing + content/admin platform (Web + Mobile)",
+      "Galapagos Outdoor — Magento e-commerce frontend customization",
+      "Amateur Golf Challenge — React Native app for golf competitions",
+    ],
+    skills: [
+      "React",
+      "Next.js",
+      "React Native",
+      "Node.js",
+      "MongoDB",
+      "AWS",
+      "Docker",
+      "CI/CD",
+    ],
+  },
+];
+---
+
+<section id="experience">
+  <h2 class="section__title">Experience</h2>
+  <p class="section__subtitle">
+    My professional journey as a developer, highlighting my growth, technical
+    achievements, and contributions to global projects.
+  </p>
+
+  <div class="experience__container">
+    {
+      experiences.map((exp, index) => (
+        <div
+          class="experience__item"
+          data-scroll-reveal={`enter bottom move 30px over 0.4s after 0.${index}s`}
+        >
+          <div class="experience__logo-container">
+            <div class="experience__logo-wrapper">
+              <img
+                src={exp.logo}
+                alt={`${exp.company} logo`}
+                class="experience__logo"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="experience__logo-placeholder">
+                {exp.company.charAt(0)}
+              </div>
+            </div>
+          </div>
+
+          <div class="experience__body">
+            <div class="experience__header">
+              <div class="experience__header-main">
+                <h3 class="experience__role">{exp.role}</h3>
+                <p class="experience__company">{exp.company}</p>
+                <div class="experience__metadata">
+                  <span class="experience__date">{exp.duration}</span>
+                  <span class="experience__location">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-3 h-3"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    {exp.location}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="experience__content">
+              {exp.description && <p>{exp.description}</p>}
+
+              {exp.contributions && (
+                <div class="experience__details">
+                  <h4>Key Contributions</h4>
+                  <ul>
+                    {exp.contributions.map((contribution) => (
+                      <li>{contribution}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {exp.selectedProjects && (
+                <div class="experience__details">
+                  <h4>Selected Projects</h4>
+                  <ul>
+                    {exp.selectedProjects.map((project) => (
+                      <li>{project}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div class="experience__skills">
+              {exp.skills.map((skill) => (
+                <span class="experience__skill">{skill}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
