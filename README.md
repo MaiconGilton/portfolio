@@ -20,7 +20,7 @@ Welcome to my personal portfolio repository! This project showcases my work, ski
 
 ## 📸 Preview
 
-Check out a live demo of this portfolio: **[maiconfreire.site](https://maiconfreire.site)**
+Check out a live demo of this portfolio: **[maiconfreire.site](https://maiconfreire.com)**
 
 
 ## 📜 License
